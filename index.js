@@ -1,21 +1,15 @@
 import express from 'express';
+import consign from 'consign';
 
-const PORT = 3000;
 const app = express();
 
-// formata a visualização do JSON no response
-app.use('json spaces', 4)
+// carrega e injeta dependências de forma simples
+consign()
+  .include('db.js')
+  .then('models')
+  .then('libs/middlewares.js')
+  .then('routes')
+  .then('libs/boot.js')
+  .into(app)
 
-app.get('/', (req, res) => res.json({status: 'NTask API'}));
 
-app.get('/tasks', (req, res) => {
-  res.json({
-    tasks: [
-      {title: "fazer compras"},
-      {title: "Ler o clean code"},
-
-    ]
-  })
-})
-
-app.listen(PORT, ()=> console.log(`iniciado ${PORT}` ))
