@@ -1,40 +1,41 @@
 "use strict";
 const { Model, DataTypes } = require("sequelize");
-const sequelize = require("../singleton/sequelize");
-
-class Tasks extends Model {
+class Users extends Model {
   /**
    * Helper method for defining associations.
    * This method is not a part of Sequelize lifecycle.
    * The `models/index` file will call this method automatically.
    */
   static associate(models) {
-    Tasks.belongsTo(models.Users);
+    Users.hasMany(models.Tasks);
   }
 }
-Tasks.init(
+Users.init(
   {
     id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true,
     },
-    tittle: {
-      type: DataTypes.STRING,
+    name: {
+      type: DataTypes.INTEGER,
       allowNull: false,
       validate: {
         notEmpty: true,
       },
     },
-    done: {
-      type: DataTypes.BOOLEAN,
+    email: {
+      type: DataTypes.STRING,
       allowNull: false,
-      defaultValue: false,
+      unique: true,
+      validate: {
+        notEmpty: true,
+      },
     },
   },
   {
     sequelize,
-    modelName: "Tasks",
+    modelName: "Users",
   }
 );
-module.exports = Tasks;
+module.exports = Users;

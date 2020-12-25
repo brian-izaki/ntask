@@ -4,8 +4,4 @@ module.exports = {
   password: "",
   dialect: "sqlite",
   storage: "ntask.sqlite",
-  define: {
-    underscored: true,
-  },
-  
 };

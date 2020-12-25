@@ -1,12 +1,13 @@
-import express from 'express';
-import consign from 'consign';
+const express = require('express');
+const consign = require('consign');
 
 const app = express();
+app.use(express.json())
 
 // carrega e injeta dependências de forma simples
 consign()
-  .include('db.js')
-  .then('models')
+  .include('libs/config.js')
+  .then('models/index.js')
   .then('libs/middlewares.js')
   .then('routes')
   .then('libs/boot.js')
