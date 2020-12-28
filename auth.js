@@ -34,7 +34,7 @@ module.exports = (app) => {
       // inicializa o passport
       return passport.initialize();
     },
-    suthenticate: () => {
+    authenticate: () => {
       //autentica o acesso de uma rota
       return passport.authenticate("jwt", cfg.jwtSession);
     },
