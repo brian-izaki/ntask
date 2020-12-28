@@ -6,3 +6,9 @@
 
 ## Para executar:
 - utilize o comando `npm start`
+
+## Status HTTP utilizados
+- sucessos 
+  - 204 -> no content
+- resposta de erro ao cliente 
+  - 412 -> precondition failed
