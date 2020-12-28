@@ -3,11 +3,6 @@ const Tasks = require("../models/Tasks");
 module.exports = (app) => {
   app
     .route("/tasks")
-    .all((req, res, next) => {
-      // middleware que executa antes de qualquer execução de rota
-      delete req.body.id; // para evitar sobreescrever qnd inserir ou alterar
-      next(); // para avisar que pode executar outra rota.
-    })
     .get((req, res) => {
       // listagem de recursos
       Tasks.findAll({})
@@ -27,10 +22,6 @@ module.exports = (app) => {
 
   app
     .route("/tasks/:id")
-    .all((req, res, next) => {
-      delete req.body.id;
-      next();
-    })
     .get((req, res) => {
       Tasks.findOne({ where: req.params })
         .then((result) => {
