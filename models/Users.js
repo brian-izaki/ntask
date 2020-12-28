@@ -1,5 +1,7 @@
 "use strict";
 const { Model, DataTypes } = require("sequelize");
+const sequelize = require("../singleton/sequelize");
+
 class Users extends Model {
   /**
    * Helper method for defining associations.
