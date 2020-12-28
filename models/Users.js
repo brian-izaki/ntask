@@ -1,5 +1,6 @@
 "use strict";
 const { Model, DataTypes } = require("sequelize");
+const bcrypt = require("bcrypt");
 const sequelize = require("../singleton/sequelize");
 
 class Users extends Model {
@@ -10,6 +11,10 @@ class Users extends Model {
    */
   static associate(models) {
     Users.hasMany(models.Tasks);
+  }
+
+  static isPassword(encodedPassword, password){
+    return bcrypt.compareSync(password, encodedPassword);
   }
 }
 Users.init(
@@ -36,6 +41,12 @@ Users.init(
     },
   },
   {
+    hooks: {
+      beforeCreate: (user) => {
+        const salt = bcrypt.genSaltSync();
+        user.password = bcrypt.hashSync(user.password, salt);
+      },
+    },
     sequelize,
     modelName: "Users",
   }
