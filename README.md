@@ -22,3 +22,11 @@
 - depois, criado um arquivo auth.js onde ficou as funções para inicialização e autenticação do Passport
 - em seguida, foi editado o middleware.js para poder inicializar o Passport
 - além disso, foi adicionado códigos relacionados a encriptação de senha do usuário com o bcrypt na model/User.js
+- seguidamente, foi criado uma rota (auth.js) para gerar um token para usuário que esteja cadastrado no banco.
+- Com o arquivo de token, caso o client enviei um token válido, por consequência é greado o objeto req.user. Isto apenas ocorre quando é retornado um usuário válido.
+- ademais, deve ser visto nos arquivos de tasks.js e users.js que foi invocado a função authenticate do arquivo auth.js. Assim, apenas usuários com tokens válidos poderão acessar estas rotas.
+
+## Testes 
+
+- Aqui foi focado os __testes de aceitação__ no contexto da aplicação visa testar as respostas de sucesso e erros das rotas. (testes em cima do comportamento e resultado dos endpoints)
+- utilizado o TestRunner [Mocha](https://mochajs.org/)
