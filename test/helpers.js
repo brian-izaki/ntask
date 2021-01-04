@@ -3,8 +3,8 @@ const app = require("../index"),
   request = require("supertest")(app),
   chai = require("chai");
 
-  module.exports = {
+module.exports = {
   app,
-  request, 
-  expect: chai.expect
-}
+  request,
+  expect: chai.expect,
+};
