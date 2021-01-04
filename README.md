@@ -30,3 +30,7 @@
 
 - Aqui foi focado os __testes de aceitação__ no contexto da aplicação visa testar as respostas de sucesso e erros das rotas. (testes em cima do comportamento e resultado dos endpoints)
 - utilizado o TestRunner [Mocha](https://mochajs.org/)
+- foi separado o arquivo de libs/config.js em test e development, no test foi adicionado o atributo logging para não ter os console de sql poluindo o prompt
+- no index foi adicionado o verbose:false para o cossign e exportado o app para que a dependencia supertest reveba o teste;
+- também teve que configurar o boot.js e o arquivo config.js para executar de forma diferente dependendo da variavel de ambiente.
+- foi criado uma pasta "testes" para criar as configurações de testes e centralizar os módulos de testes.
