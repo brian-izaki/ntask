@@ -4,9 +4,10 @@ const Users = require("./models/Users");
 const cfg = require("./libs/config")();
 
 module.exports = (app) => {
-  let opts = {};
-  opts.secretOrKey = cfg.jwtSecret;
-  opts.jwtFromRequest = ExtractJwt.fromAuthHeaderAsBearerToken();
+  let opts = {
+    secretOrKey: cfg.jwtSecret,
+    jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
+  };
 
   // constrói a estratégia que utiliza o Passport + JWT
   const strategy = new Strategy(opts, (payload, done) => {
