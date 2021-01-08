@@ -4,7 +4,6 @@ const app = require("../index"),
   chai = require("chai");
 
 module.exports = {
-  app,
   request,
   expect: chai.expect,
 };

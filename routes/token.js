@@ -21,7 +21,6 @@ module.exports = (app) => {
           }
         })
         .catch((error) => {
-          console.log(error);
           res.sendStatus(401);
         });
     } else {
