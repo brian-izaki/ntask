@@ -7,11 +7,11 @@ describe("Routes: Token", () => {
     
     // código executado antes de CADA teste
     beforeEach((done) => {
-      Users.destroy({ where: {} }).then(() =>
+      Users.destroy({ where: {name: "olaUser"} }).then(() =>
         Users.create({
-          name: "brian",
-          email: "brian@teste.com",
-          password: "1234",
+          name: "olaUser",
+          email: "ola@teste.com",
+          password: "123",
         }).then(done())
       );
     });
@@ -20,7 +20,7 @@ describe("Routes: Token", () => {
       it("returned authenticated token", (done) => {
         request
           .post("/token")
-          .send({ email: "brian@teste.com", password: "1234" }) // realiza a request
+          .send({ email: "ola@teste.com", password: "123" }) // realiza a request
           .expect(200) // no retorno é esperado 200
           .end((err, res) => {
             // com esse retorno...
@@ -34,7 +34,7 @@ describe("Routes: Token", () => {
       it("Throw error when password is incorrect", (done) => {
         request
           .post("/token")
-          .send({ email: "brian@teste.com", password: "errado" })
+          .send({ email: "ola@teste.com", password: "errado" })
           .expect(401)
           .end((err, res) => {
             done(err);
