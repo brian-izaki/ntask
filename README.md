@@ -3,6 +3,7 @@
 ## Necessário para executar:
 
 - Node
+- utilizar ambiente Linux ou WSL com alguma distro no windows
 - SQLite instalado na máquina
 
 ## Para executar:
@@ -27,6 +28,8 @@
 - ademais, deve ser visto nos arquivos de tasks.js e users.js que foi invocado a função authenticate do arquivo auth.js. Assim, apenas usuários com tokens válidos poderão acessar estas rotas.
 
 ## Testes 
+
+- para executar o Teste utilize o comando `npm test`
 
 - Aqui foi focado os __testes de aceitação__ no contexto da aplicação visa testar as respostas de sucesso e erros das rotas. (testes em cima do comportamento e resultado dos endpoints)
 - utilizado o TestRunner [Mocha](https://mochajs.org/)
