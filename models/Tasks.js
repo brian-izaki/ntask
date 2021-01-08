@@ -19,6 +19,13 @@ Tasks.init(
       primaryKey: true,
       autoIncrement: true,
     },
+    user_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'Users',
+        key: 'id'
+      }
+    },
     tittle: {
       type: DataTypes.STRING,
       allowNull: false,
