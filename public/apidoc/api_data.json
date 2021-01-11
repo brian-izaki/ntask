@@ -12,14 +12,14 @@
             "type": "String",
             "optional": false,
             "field": "email",
-            "description": "<p>Email de usuário</p>"
+            "description": "<p>Email de usuário cadastrado</p>"
           },
           {
             "group": "Parameter",
             "type": "String",
             "optional": false,
             "field": "password",
-            "description": "<p>Senha de usuário</p>"
+            "description": "<p>Senha de usuário cadastrado</p>"
           }
         ]
       },
@@ -90,6 +90,12 @@
         }
       ]
     },
+    "description": "<p>utilizando o description</p> <p>outra linha com description</p>",
+    "permission": [
+      {
+        "name": "none"
+      }
+    ],
     "version": "0.0.0",
     "filename": "routes/index.js",
     "groupTitle": "Status",

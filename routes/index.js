@@ -6,6 +6,9 @@ module.exports = (app) => {
    * @apiSuccessExample {json} Sucesso
    *    HTTP/1.1 200 OK
    *    {"status": "NTask API"}
+   * @apiDescription utilizando o description
+   * 
+   * outra linha com description
    */
 
   app.get("/", (req, res) => {
