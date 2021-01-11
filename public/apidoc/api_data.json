@@ -193,14 +193,14 @@
           },
           {
             "group": "Success 200",
-            "type": "Numeer",
+            "type": "Number",
             "optional": false,
             "field": "id",
             "description": "<p>Id da tarefa</p>"
           },
           {
             "group": "Success 200",
-            "type": "Numeer",
+            "type": "Number",
             "optional": false,
             "field": "user_id",
             "description": "<p>Id do usuário que cadastrou a tarefa</p>"
@@ -238,7 +238,7 @@
       "examples": [
         {
           "title": "Sucesso",
-          "content": "HTTp/1.1 200 OK\n[{\n  \"id\": 1,\n  \"user_id\": 1,\n  \"tittle\": \"tarefa 50\",\n  \"done\": false,\n  \"createdAt\": \"2021-01-11T18:04:03.503Z\",\n  \"updatedAt\": \"2021-01-11T18:04:03.503Z\"\n}]",
+          "content": "HTTP/1.1 200 OK\n[{\n  \"id\": 1,\n  \"user_id\": 1,\n  \"tittle\": \"tarefa 50\",\n  \"done\": false,\n  \"createdAt\": \"2021-01-11T18:04:03.503Z\",\n  \"updatedAt\": \"2021-01-11T18:04:03.503Z\"\n}]",
           "type": "json"
         }
       ]
@@ -300,14 +300,14 @@
         "Success 200": [
           {
             "group": "Success 200",
-            "type": "Numeer",
+            "type": "Number",
             "optional": false,
             "field": "id",
             "description": "<p>Id da tarefa</p>"
           },
           {
             "group": "Success 200",
-            "type": "Numeer",
+            "type": "Number",
             "optional": false,
             "field": "user_id",
             "description": "<p>Id do usuário que cadastrou a tarefa</p>"
@@ -345,7 +345,7 @@
       "examples": [
         {
           "title": "Sucesso",
-          "content": "HTTp/1.1 200 OK\n{\n  \"id\": 1,\n  \"user_id\": 1,\n  \"tittle\": \"tarefa 50\",\n  \"done\": false,\n  \"createdAt\": \"2021-01-11T18:04:03.503Z\",\n  \"updatedAt\": \"2021-01-11T18:04:03.503Z\"\n}",
+          "content": "HTTP/1.1 200 OK\n{\n  \"id\": 1,\n  \"user_id\": 1,\n  \"tittle\": \"tarefa 50\",\n  \"done\": false,\n  \"createdAt\": \"2021-01-11T18:04:03.503Z\",\n  \"updatedAt\": \"2021-01-11T18:04:03.503Z\"\n}",
           "type": "json"
         }
       ]
@@ -492,7 +492,7 @@
   },
   {
     "type": "put",
-    "url": "/tasks:id",
+    "url": "/tasks/:id",
     "title": "Atualiza uma tarefa",
     "group": "Tasks",
     "header": {
