@@ -4,10 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "NODE_ENV=development node index.js",
-    "test": "NODE_ENV=test mocha test/**/*.js"
+    "start": "npm run apidoc && node index.js",
+    "test": "NODE_ENV=test mocha test/**/*.js",
+    "apidoc": "apidoc -i routes/ -o public/apidoc"
   },
-  "author": "",
+  "author": "Brian",
+  "apidoc": "Documentação - Node Task API",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.0.0",
@@ -20,8 +22,7 @@
     "sqlite3": "^5.0.0"
   },
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-preset-es2015": "^6.24.1",
+    "apidoc": "^0.26.0",
     "chai": "^4.2.0",
     "mocha": "^8.2.1",
     "sequelize-cli": "^6.2.0",

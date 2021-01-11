@@ -13,4 +13,7 @@ module.exports = (app) => {
     delete req.body.id; // para evitar sobreescrever qnd inserir ou alterar
     next(); // para avisar que pode executar outra rota.
   });
+
+  // habilita arquivos estáticos
+  app.use(express.static("public"));
 };
