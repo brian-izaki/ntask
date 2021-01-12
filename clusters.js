@@ -3,7 +3,9 @@ const cluster = require("cluster"),
 
 const CPUS = os.cpus();
 if (cluster.isMaster) {
+  //é criado um cluster filho pára cada cpu
   CPUS.forEach(() => cluster.fork());
+  
   cluster.on("listening", (worker) => {
     console.log("Cluster %d conectado", worker.process.pid);
   });
