@@ -1,7 +1,8 @@
 const express = require("express"),
   cors = require("cors"),
   morgan = require("morgan"),
-  logger = require("./logger");
+  logger = require("./logger"),
+  compression = require("compression");
 
 module.exports = (app) => {
   // formata a visualização do JSON no response
@@ -24,6 +25,8 @@ module.exports = (app) => {
       allowedHeaders: ["Content=Type", "Authorization"], // cabeçalhos permitidos
     })
   );
+  // compacta as requisições para o formato GZIP
+  app.use(compression())
   // possibilita o recebimento de JSON
   app.use(express.json());
   app.use(app.auth.initialize());
