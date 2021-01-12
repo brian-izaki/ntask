@@ -37,3 +37,7 @@
 - no index foi adicionado o verbose:false para o cossign e exportado o app para que a dependencia supertest reveba o teste;
 - também teve que configurar o boot.js e o arquivo config.js para executar de forma diferente dependendo da variavel de ambiente.
 - foi criado uma pasta "testes" para criar as configurações de testes e centralizar os módulos de testes.
+
+## Produção 
+- utilizado o CORS para compartilhar recursos com origens diferentes
+- utilizado `winston` e `morgan` para geraar arquivos de logs das requisições realizadas.

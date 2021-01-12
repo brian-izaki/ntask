@@ -1,10 +1,29 @@
-const express = require("express");
+const express = require("express"),
+  cors = require("cors"),
+  morgan = require("morgan"),
+  logger = require("./logger");
 
 module.exports = (app) => {
   // formata a visualização do JSON no response
   app.set("json spaces", 4);
   app.set("port", 3000);
 
+  app.use(
+    morgan("common", {
+      stream: {
+        write: (message) => {
+          logger.info(message);
+        },
+      },
+    })
+  );
+  app.use(
+    cors({
+      origin: ["http://localhost:3001"], // aceita apenas apps clientes desse domínio
+      methods: ["GET", "POST", "PUT", "DELETE"], // metodos permitidos
+      allowedHeaders: ["Content=Type", "Authorization"], // cabeçalhos permitidos
+    })
+  );
   // possibilita o recebimento de JSON
   app.use(express.json());
   app.use(app.auth.initialize());
