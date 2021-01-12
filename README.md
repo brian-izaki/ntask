@@ -20,6 +20,7 @@
 ## Gerenciamento de login (com JWT, Passport e bcrypt)
 
 - foi adicionado atributos no config.js de secret e session
+
 - depois, criado um arquivo auth.js onde ficou as funções para inicialização e autenticação do Passport
 - em seguida, foi editado o middleware.js para poder inicializar o Passport
 - além disso, foi adicionado códigos relacionados a encriptação de senha do usuário com o bcrypt na model/User.js
@@ -27,17 +28,34 @@
 - Com o arquivo de token, caso o client enviei um token válido, por consequência é greado o objeto req.user. Isto apenas ocorre quando é retornado um usuário válido.
 - ademais, deve ser visto nos arquivos de tasks.js e users.js que foi invocado a função authenticate do arquivo auth.js. Assim, apenas usuários com tokens válidos poderão acessar estas rotas.
 
-## Testes 
+## Testes
 
 - para executar o Teste utilize o comando `npm test`
 
-- Aqui foi focado os __testes de aceitação__ no contexto da aplicação visa testar as respostas de sucesso e erros das rotas. (testes em cima do comportamento e resultado dos endpoints)
+- Aqui foi focado os **testes de aceitação** no contexto da aplicação visa testar as respostas de sucesso e erros das rotas. (testes em cima do comportamento e resultado dos endpoints)
 - utilizado o TestRunner [Mocha](https://mochajs.org/)
 - foi separado o arquivo de libs/config.js em test e development, no test foi adicionado o atributo logging para não ter os console de sql poluindo o prompt
 - no index foi adicionado o verbose:false para o cossign e exportado o app para que a dependencia supertest reveba o teste;
 - também teve que configurar o boot.js e o arquivo config.js para executar de forma diferente dependendo da variavel de ambiente.
 - foi criado uma pasta "testes" para criar as configurações de testes e centralizar os módulos de testes.
 
-## Produção 
+## Docmentação da api
+
+- foi utilizado [apidoc](https://apidocjs.com/) para gerar documentação das rotas da API REST
+
+- utilize o comando `npm apidoc` para gerar uma documentação em html automaticamente
+- para que o apiDoc gere uma documentação é necessário utilizar o seguite exemplo:
+```javascript
+/**
+ * @api {método HTTP} rota Descrição sobre a rota
+ * @apiGroup Titulo que a rota faz parte
+ * ... visitar a documentação para mais opções
+ */
+```
+- Para saber onde deve ser lido os comentários que geram a doc, é passado o caminho pelo prompt (-i) e onde deve ser gerado os aquivos HTML (-o) pelo seguinte código: `apidoc -i routes/ -o public/apidoc`
+- exemplos podem ser vistos na pasta [routes](https://github.com/brian-izaki/ntask/tree/main/routes)
+
+## Produção
+
 - utilizado o CORS para compartilhar recursos com origens diferentes
 - utilizado `winston` e `morgan` para geraar arquivos de logs das requisições realizadas.
