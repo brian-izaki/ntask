@@ -91,11 +91,6 @@ define({ "api": [
       ]
     },
     "description": "<p>utilizando o description</p> <p>outra linha com description</p>",
-    "permission": [
-      {
-        "name": "none"
-      }
-    ],
     "version": "0.0.0",
     "filename": "routes/index.js",
     "groupTitle": "Status",
