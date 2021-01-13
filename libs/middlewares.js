@@ -2,7 +2,8 @@ const express = require("express"),
   cors = require("cors"),
   morgan = require("morgan"),
   logger = require("./logger"),
-  compression = require("compression");
+  compression = require("compression"),
+  helmet = require("helmet");
 
 module.exports = (app) => {
   // formata a visualização do JSON no response
@@ -18,6 +19,8 @@ module.exports = (app) => {
       },
     })
   );
+  // comentado pois ocorria erros de CSP ao carregar docementação da apidoc
+  // app.use(helmet());
   app.use(
     cors({
       origin: ["http://localhost:3001"], // aceita apenas apps clientes desse domínio
@@ -26,7 +29,7 @@ module.exports = (app) => {
     })
   );
   // compacta as requisições para o formato GZIP
-  app.use(compression())
+  app.use(compression());
   // possibilita o recebimento de JSON
   app.use(express.json());
   app.use(app.auth.initialize());

@@ -54,6 +54,7 @@
 ```
 - Para saber onde deve ser lido os comentários que geram a doc, é passado o caminho pelo prompt (-i) e onde deve ser gerado os aquivos HTML (-o) pelo seguinte código: `apidoc -i routes/ -o public/apidoc`
 - exemplos podem ser vistos na pasta [routes](https://github.com/brian-izaki/ntask/tree/main/routes)
+- para acessar a página HTML da documentação é necessário iniciar o servidor e depois ir para o seguinte link *https://localhost:3000/apidoc*
 
 ## Produção
 
