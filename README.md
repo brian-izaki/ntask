@@ -45,7 +45,7 @@
 
 - utilize o comando `npm apidoc` para gerar uma documentação em html automaticamente
 - para que o apiDoc gere uma documentação é necessário utilizar o seguite exemplo:
-```javascript
+```
 /**
  * @api {método HTTP} rota Descrição sobre a rota
  * @apiGroup Titulo que a rota faz parte
@@ -59,3 +59,29 @@
 
 - utilizado o CORS para compartilhar recursos com origens diferentes
 - utilizado `winston` e `morgan` para geraar arquivos de logs das requisições realizadas.
+- utilizado a dependência [helmet](https://helmetjs.github.io/) para proteger mais a API
+  - é um middleware para express que auxilia contra alguns ataques básicos como XSS, ClickJacking, configura regras para HTTP Public key pinning, etc
+
+## Certificado HTTPS
+- foi gerado um certificado com o openssl
+
+- seguindo os seguintes passos:
+  - Gerando chave privada 
+  ```shell
+  openssl genrsa -des3 -out server.key 1024
+  ```
+  - Gerando CSR (Certificate Signing Request)
+  ```shell
+  openssl req -new -key server.key -server.csr
+  ```
+  - Removendo o pedido de senha
+  ```shell
+  cp server.key server.key.org
+  openssl rsa -in server.key.org -out server.key
+  ```
+  - Gerando o certificado auto-assinado
+  ```shell
+  openssl x509 -req -days 365 -in server.csr -signkey server.key -out server.crt
+  ```
+  - depois foi utilizado o módulo nativo do node para https no `libs/boot.js` para o servidor instancie no *https* e para a leitura dos certificados o *fs*
+- [mais informações](https://www.akadia.com/services/ssh_test_certificate.html) 
