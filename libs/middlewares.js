@@ -22,18 +22,18 @@ module.exports = (app) => {
   // comentado pois ocorria erros de CSP ao carregar docementação da apidoc
   // app.use(helmet());
   
-  // app.use(
-  //   cors({
-  //     origin: ["http://localhost:3001"], // aceita apenas apps clientes desse domínio
-  //     methods: ["GET", "POST", "PUT", "DELETE"], // metodos permitidos
-  //     allowedHeaders: ["Content=Type", "Authorization"], // cabeçalhos permitidos
-  //   })
-  // );
-  app.use(function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "http://localhost:3001"); // update to match the domain you will make the request from
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
-  });
+  app.use(
+    cors({
+      origin: "*", // aceita apenas apps clientes desse domínio
+      methods: ["GET", "POST", "PUT", "DELETE"], // metodos permitidos
+      allowedHeaders: ["Content-Type", "Authorization"], // cabeçalhos permitidos
+    })
+  );
+  // app.use(function(req, res, next) {
+  //   res.header("Access-Control-Allow-Origin", "*"); // update to match the domain you will make the request from
+  //   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  //   next();
+  // });
 
   // compacta as requisições para o formato GZIP
   app.use(compression());
